@@ -8,7 +8,8 @@
 		_EmissionColor ("Emission Color", Color) = (1,1,1,1)
 		_EmissionMultiplier("Emision multiplier", float) = 1
 		_EmissionSpeedX("Emission Scroll Speed X", float) = 1
-		_EmissionSpeedY("Emission Scroll Speed Y", float) = 1	
+		_EmissionSpeedY("Emission Scroll Speed Y", float) = 1
+		_EmissionThreshold("Emission Threshold", Range(0,1)) = 0	
 	}
 	SubShader {
 		Tags { "RenderType"="Opaque" }
@@ -28,6 +29,7 @@
 		float _EmissionSpeedX;
 		float _EmissionSpeedY;
 		fixed4 _EmissionColor;
+		float _EmissionThreshold;
 
 		struct Input {
 			float2 uv_MainTex;
@@ -48,9 +50,14 @@
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
 			fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-			fixed2 emmissionUV = float2(IN.uv_Emission.x + _Time.x * _EmissionSpeedX,
-										IN.uv_Emission.y + _Time.x * _EmissionSpeedY);
-			fixed4 emission = tex2D(_Emission, emmissionUV) * _EmissionMultiplier;
+			fixed2 emmissionUV = IN.uv_Emission + float2(_EmissionSpeedX, _EmissionSpeedY) * _Time.x;
+			fixed emission = tex2D(_Emission, emmissionUV).r;
+			if(emission < _EmissionThreshold){
+				emission = 0;
+			}
+
+			emission *= _EmissionMultiplier;
+
 			o.Albedo = c.rgb;
 			o.Emission = emission * _EmissionColor;
 			// Metallic and smoothness come from slider variables
