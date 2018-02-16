@@ -66,7 +66,7 @@ Material:
     - _EmissionMultiplier: 1.03
     - _EmissionSpeedX: 1
     - _EmissionSpeedY: 1.48
-    - _EmissionThreshold: 0.409
+    - _EmissionThreshold: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.253
     - _GlossyReflections: 1

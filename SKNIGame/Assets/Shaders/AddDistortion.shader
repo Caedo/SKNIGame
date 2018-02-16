@@ -5,13 +5,14 @@
 		_MainColorA ("Main Color A", Color) = (1,1,1)
 		_MainColorB ("Main Color B", Color) = (1,1,1)		
 		_MainTex ("Main Texture", 2D) = "white" {}
-		_Offset ("Offset Gradient", Range(-2,2)) = 2	
+		_Offset ("Offset Gradient", Range(-1,1)) = 0	
 		_DistortionTex("Distortion Texture", 2D) = "white" {}
 		_DistortStr("Distortion Strengh", Range(0,1)) = .5
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Opaque" }
+		Tags { "RenderType"="Opaque"
+				"Queue" = "Transparent" }
 		LOD 100
 		ZWrite Off
 		Blend One One
@@ -55,7 +56,8 @@
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				UNITY_TRANSFER_FOG(o,o.vertex);
-				o.color = lerp(_MainColorA, _MainColorB, v.vertex.y + _Offset);
+				float colBlend = v.vertex.y * 0.5 + 0.5;
+				o.color = lerp(_MainColorA, _MainColorB, colBlend + _Offset);
 				return o;
 			}
 			
