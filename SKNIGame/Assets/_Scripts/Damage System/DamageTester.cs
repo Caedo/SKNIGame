@@ -15,6 +15,7 @@ public class DamageTester : MonoBehaviour
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit))
 			{
+				Debug.Log(hit.collider.name);
 				LivingEntity entity = hit.collider.GetComponent<LivingEntity>();
 
 				if (entity)

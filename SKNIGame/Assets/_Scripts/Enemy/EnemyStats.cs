@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu]
 public class EnemyStats : ScriptableObject {
-	public string m_Name;
+	public string m_EnemyName;
 	public Element m_Element;
 	public float m_Health;
 	public float m_Damage;
@@ -17,7 +18,7 @@ public class EnemyStats : ScriptableObject {
 			if (m_AttacksPerSecond != 0) {
 				return 1 / m_AttacksPerSecond;
 			} else {
-				Debug.LogWarning("Attacks per second set to 0 in enemy :" + m_Name);
+				Debug.LogWarning("Attacks per second set to 0 in enemy :" + m_EnemyName);
 				return 1000;
 			}
 		}
