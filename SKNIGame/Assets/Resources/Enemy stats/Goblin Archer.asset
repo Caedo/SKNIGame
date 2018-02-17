@@ -16,6 +16,6 @@ MonoBehaviour:
   m_Health: 100
   m_Damage: 10
   m_AttacksPerSecond: 1
-  m_AttackRange: 10
+  m_AttackRange: 15
   m_MovementSpeed: 10
   m_Description: Kappa

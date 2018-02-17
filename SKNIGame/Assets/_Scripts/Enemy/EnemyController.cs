@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour {
     private void Update() {
 
         m_AttackTimer += Time.deltaTime;
-        if (m_AttackTimer >= m_Stats.TimeBetweenAttacks && 
+        if (m_AttackTimer >= m_Stats.TimeBetweenAttacks &&
             Vector3.Distance(m_Target.transform.position, transform.position) <= m_Stats.m_AttackRange) {
 
             m_AttackTimer = 0;
@@ -50,6 +50,8 @@ public class EnemyController : MonoBehaviour {
     //Find closest target and start move
     private void FindTarget() {
         var pillars = GameObject.FindObjectsOfType<PillarHealth>();
+        if (pillars.Length == 0)
+            return;
 
         m_Target = pillars[0];
         float minDist = float.MaxValue;
@@ -63,6 +65,7 @@ public class EnemyController : MonoBehaviour {
 
         Vector3 dir = (transform.position - m_Target.transform.position).normalized;
 
+        //Set Destination based on actual attack range
         m_Agent.destination = m_Target.transform.position + dir * (m_Stats.m_AttackRange - 0.2f);
         //Debug.Log(m_Agent.destination);
     }

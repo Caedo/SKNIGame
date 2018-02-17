@@ -43,6 +43,8 @@
         "**/*.meta":true,
         "**/*.prefab":true,
         "**/*.unity":true,
+        "**/*.blend":true,
+        "**/*.blend1":true,                        
         "build/":true,
         "Build/":true,
         "Library/":true,

@@ -6,6 +6,7 @@ public class DamageTester : MonoBehaviour
 {
 
 	public Element attackElement;
+	public float m_Damage;
 
 	private void Update()
 	{
@@ -20,7 +21,7 @@ public class DamageTester : MonoBehaviour
 
 				if (entity)
 				{
-					entity.Damage(50, attackElement);
+					entity.Damage(m_Damage, attackElement);
 				}
 			}
 		}

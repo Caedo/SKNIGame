@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83f245c5d65f82643ab46816f35c40d3, type: 3}
+  m_Name: L1W1
+  m_EditorClassIdentifier: 
+  m_SubWaves:
+  - m_Name: 2G
+    m_WaitTime: 1
+    m_Enemies:
+    - m_EnemyPrefab: {fileID: 114094929405145440, guid: 51d1bb0e7718def43a15b87fa89ef37f,
+        type: 2}
+      m_SpawnCount: 2
+  - m_Name: 2GA
+    m_WaitTime: 2
+    m_Enemies:
+    - m_EnemyPrefab: {fileID: 114849995341404870, guid: ee81208ace62f9342aacbe42d4fe6844,
+        type: 2}
+      m_SpawnCount: 2
