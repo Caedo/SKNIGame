@@ -17,7 +17,7 @@ MonoBehaviour:
     m_Enemies:
     - m_EnemyPrefab: {fileID: 114094929405145440, guid: 51d1bb0e7718def43a15b87fa89ef37f,
         type: 2}
-      m_SpawnCount: 2
+      m_SpawnCount: 4
   - m_Name: 2GA
     m_WaitTime: 2
     m_Enemies:

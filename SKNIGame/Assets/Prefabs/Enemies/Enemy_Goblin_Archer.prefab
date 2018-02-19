@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Stats: {fileID: 11400000, guid: 47215f7e598523a4e847dd04a7a51a3e, type: 2}
+  m_TargetPrioritization: 2
 --- !u!195 &195925233110557660
 NavMeshAgent:
   m_ObjectHideFlags: 1

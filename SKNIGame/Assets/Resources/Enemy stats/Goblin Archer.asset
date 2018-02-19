@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EnemyName: Goblin Archer
   m_Element: {fileID: 11400000, guid: ce9a308b8b90faf4d8c0db33b7188c05, type: 2}
   m_Health: 100
-  m_Damage: 10
+  m_Damage: 20
   m_AttacksPerSecond: 1
   m_AttackRange: 15
   m_MovementSpeed: 10
