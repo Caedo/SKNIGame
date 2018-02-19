@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager Instance { get; private set; }
 
-	List<PillarHealth> m_ActivePillars;
+	public List<PillarHealth> ActivePillars {get; private set;}
 	private void Awake() {
 		//I'm evil so I'm creating singletons!
 		if(Instance != null){
@@ -23,14 +23,14 @@ public class GameManager : MonoBehaviour {
 
 	private void Start() {
 		//Probably this should be changed
-		m_ActivePillars = FindObjectsOfType<PillarHealth>().ToList();
+		ActivePillars = FindObjectsOfType<PillarHealth>().ToList();
 	}
 
 	void OnPillarDestroyed(PillarHealth pillar){
-		m_ActivePillars.Remove(pillar);
+		ActivePillars.Remove(pillar);
 
 		//When all pillars are destroyed game is over
-		if(m_ActivePillars.Count <= 0){
+		if(ActivePillars.Count <= 0){
 			GameOver();
 		}
 	}

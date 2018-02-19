@@ -7,9 +7,8 @@ public class Spawner : MonoBehaviour {
 	public Transform[] m_SpawnPoints;
 	public List<WaveData> m_Waves;
 	public float m_WaveDelay = 15f; //This is time that has to pass between two waves
-	public float m_SpawnDelay = 0.5f; //time between two spawns - prevents object clipping
+	public float m_SpawnDelay = 0.5f; //time between two spawns - prevent object clipping
 	public float WaveTimer { get; private set; } // timer for waiting between waves 
-	
 
 	WaitForSeconds m_WaitForSpawn;
 	int m_WaveNumber = -1; //current wave number
@@ -60,7 +59,9 @@ public class Spawner : MonoBehaviour {
 					for (int k = 0; k < currentSubWave.m_Enemies[j].m_SpawnCount; k++) { // this loop is for all enemies types in subwaves
 
 						Transform spawnPoint = m_SpawnPointsQueue.Dequeue();
-						Instantiate(currentSubWave.m_Enemies[j].m_EnemyPrefab, spawnPoint.position, Quaternion.identity);
+						var enemy = Instantiate(currentSubWave.m_Enemies[j].m_EnemyPrefab, spawnPoint.position, Quaternion.identity);
+
+						enemy.InitializeTargets(GameManager.Instance.ActivePillars);
 
 						m_SpawnPointsQueue.Enqueue(spawnPoint);
 						m_EnemiesAlive++;
