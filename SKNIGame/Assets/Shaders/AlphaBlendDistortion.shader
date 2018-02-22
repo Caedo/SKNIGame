@@ -3,8 +3,9 @@
 	Properties
 	{
 		_MainColorA ("Main Color A", Color) = (1,1,1)
-		_MainColorB ("Main Color B", Color) = (1,1,1)		
+		_MainColorB ("Main Color B", Color) = (1,1,1)
 		_MainTex ("Main Texture", 2D) = "white" {}
+		_Intensity("Intensity Multiplier", Float) = 1
 		_Offset ("Offset Gradient", Range(-1,1)) = 0	
 		_DistortionTex("Distortion Texture", 2D) = "white" {}
 		_DistortStr("Distortion Strength", Range(0,1)) = .5
@@ -57,6 +58,7 @@
 			float _DistortStr;
 			float _DistrSpeedX;
 			float _DistrSpeedY;			
+			float _Intensity;
 
 			v2f vert (appdata v)
 			{
@@ -78,7 +80,7 @@
 				fixed4 col = tex2D(_MainTex, i.uv + dist) * i.color * mask;
 
 				UNITY_APPLY_FOG(i.fogCoord, col);
-				return col;
+				return col * _Intensity;
 			}
 			ENDCG
 		}
