@@ -1,4 +1,4 @@
-﻿Shader "Custom/Additive Distortion"
+﻿Shader "Custom/Alpha Blend Distortion"
 {
 	Properties
 	{
@@ -8,6 +8,8 @@
 		_Offset ("Offset Gradient", Range(-1,1)) = 0	
 		_DistortionTex("Distortion Texture", 2D) = "white" {}
 		_DistortStr("Distortion Strength", Range(0,1)) = .5
+		_DistrSpeedX("Distortion Speed X", Float) = 1
+		_DistrSpeedY("Distortion Speed Y", Float) = 1		
 		_Mask("Mask", 2D) = "white" {}
 	}
 	SubShader
@@ -16,7 +18,7 @@
 				"Queue" = "Transparent" }
 		LOD 100
 		ZWrite Off
-		Blend One One
+		Blend One OneMinusSrcAlpha
 
 		Pass
 		{
@@ -53,6 +55,8 @@
 			float4 _MainTex_ST;
 			float _Offset;
 			float _DistortStr;
+			float _DistrSpeedX;
+			float _DistrSpeedY;			
 
 			v2f vert (appdata v)
 			{
@@ -68,7 +72,8 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				fixed dist = tex2D(_DistortionTex, i.uv - _Time.x).r * _DistortStr;
+				fixed2 distUV = fixed2(i.uv.x - _Time.x * _DistrSpeedX, i.uv.y - _Time.x * _DistrSpeedY);
+				fixed dist = tex2D(_DistortionTex, distUV).r * _DistortStr;
 				fixed mask = tex2D(_Mask, i.uv).r;
 				fixed4 col = tex2D(_MainTex, i.uv + dist) * i.color * mask;
 
