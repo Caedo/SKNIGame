@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LinePrefab: {fileID: 120106047937311820, guid: 5d35c4d68bdeb0b4d80db48a325257bd,
     type: 2}
-  m_SearchDst: 0.4
+  m_SearchDst: 0.5
   m_MaxLinesCount: 80
   m_MaxLinesPerParticle: 2
   m_LineColorFromParticle: 1
@@ -212,7 +212,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1961250631
+  randomSeed: 1875568684
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4133,7 +4133,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 60
       minScalar: 10
       maxCurve:
         serializedVersion: 2
