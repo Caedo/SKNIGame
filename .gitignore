@@ -32,3 +32,11 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+#Rider files
+.idea/
+SKNIGame/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs.meta
+SKNIGame/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs
+SKNIGame/Assets/Plugins/Editor/JetBrains.meta
+SKNIGame/Assets/Plugins/Editor.meta
+SKNIGame/Assets/Plugins.meta
