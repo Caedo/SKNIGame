@@ -3,39 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
+    public static GameManager Instance { get; private set; }
 
-	public static GameManager Instance { get; private set; }
+    public List<PillarHealth> ActivePillars { get; private set; }
 
-	public List<PillarHealth> ActivePillars {get; private set;}
-	private void Awake() {
-		//I'm evil so I'm creating singletons!
-		if(Instance != null){
-			Debug.LogWarning("Second GameManager on Scene, deleting old one!");
-			DestroyImmediate(Instance.gameObject);
-		}
-		
-		Instance = this;
+    private void Awake() {
+        //I'm evil so I'm creating singletons!
+        if (Instance != null) {
+            Debug.LogWarning("Second GameManager on Scene, deleting old one!");
+            DestroyImmediate(Instance.gameObject);
+        }
 
-		//Subscribe OnPillarDestroyed to static event
-		PillarHealth.OnPillarDestroy += OnPillarDestroyed;
-	}
+        Instance = this;
 
-	private void Start() {
-		//Probably this should be changed
-		ActivePillars = FindObjectsOfType<PillarHealth>().ToList();
-	}
+        //Subscribe OnPillarDestroyed to static event
+        PillarHealth.OnPillarDestroy += OnPillarDestroyed;
+    }
 
-	void OnPillarDestroyed(PillarHealth pillar){
-		ActivePillars.Remove(pillar);
+    private void Start() {
+        //Probably this should be changed
+        ActivePillars = FindObjectsOfType<PillarHealth>().ToList();
+    }
 
-		//When all pillars are destroyed game is over
-		if(ActivePillars.Count <= 0){
-			GameOver();
-		}
-	}
+    void OnPillarDestroyed(PillarHealth pillar) {
+        ActivePillars.Remove(pillar);
 
-	void GameOver(){
-		Debug.Log("GameOver");
-	}
+        //When all pillars are destroyed game is over
+        if (ActivePillars.Count <= 0) {
+            GameOver();
+        }
+    }
+
+    void GameOver() {
+        Debug.Log("GameOver");
+    }
 }
