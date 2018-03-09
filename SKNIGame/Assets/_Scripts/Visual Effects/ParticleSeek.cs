@@ -11,14 +11,14 @@ public class ParticleSeek : MonoBehaviour {
 	ParticleSystem m_Ps;
 	ParticleSystem.Particle[] particles;
 
-	float m_StartDistToTarget;
+//	float m_StartDistToTarget;
 
 	private void Awake() {
 		m_Ps = GetComponent<ParticleSystem>();
 	}
 
 	private void Start() {
-		m_StartDistToTarget = Vector3.Distance(transform.position, m_Attractor.position);
+		//m_StartDistToTarget = Vector3.Distance(transform.position, m_Attractor.position);
 	}
 
 	void LateUpdate() {

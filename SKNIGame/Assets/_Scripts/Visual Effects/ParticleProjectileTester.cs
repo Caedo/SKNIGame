@@ -8,10 +8,10 @@ public class ParticleProjectileTester : MonoBehaviour {
 	public float m_MaxXPosition = 10;
 	public float m_MinXPosition = -10;
 
-	private ParticleSystem currentParticles;
+	//private ParticleSystem currentParticles;
 
 	private void Awake() {
-		currentParticles = GetComponent<ParticleSystem>();
+		//currentParticles = GetComponent<ParticleSystem>();
 	}
 
 	private void Update() {
