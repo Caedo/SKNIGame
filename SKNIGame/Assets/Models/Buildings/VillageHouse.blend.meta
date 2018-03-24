@@ -1,15 +1,40 @@
 fileFormatVersion: 2
-guid: 9a90978da13509847b10b4bf444b615a
-timeCreated: 1520799584
+guid: 5f1102ffa569f814aaea8e08ccbfbc65
+timeCreated: 1521915537
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Icosphere
+    100000: Cube
+    100002: Doors
+    100004: Roof
+    100006: Rooftop
+    100008: //RootNode
+    100010: Walls
+    400000: Cube
+    400002: Doors
+    400004: Roof
+    400006: Rooftop
+    400008: //RootNode
+    400010: Walls
+    2100000: unnamed
+    2300000: Cube
+    2300002: Doors
+    2300004: Roof
+    2300006: Rooftop
+    2300008: Walls
+    3300000: Cube
+    3300002: Doors
+    3300004: Roof
+    3300006: Rooftop
+    3300008: Walls
+    4300000: Doors
+    4300002: Cube
+    4300004: Rooftop
+    4300006: Roof
+    4300008: Walls
+    7400000: Default Take
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -61,8 +86,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 0
-    normalImportMode: 1
+    normalSmoothAngle: 60
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
@@ -84,7 +109,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
