@@ -13,6 +13,7 @@ ModelImporter:
     100010: Bone_004
     100012: Cylinder
     100014: //RootNode
+    100016: Tree005
     400000: Armature
     400002: Bone
     400004: Bone_001
@@ -21,14 +22,17 @@ ModelImporter:
     400010: Bone_004
     400012: Cylinder
     400014: //RootNode
+    400016: Tree005
     2100000: TreeMaterial
     2300000: Cylinder
     3300000: Cylinder
     4300000: Cylinder
+    4300002: Tree005
     7400000: Default Take
     7400002: Basic005
     9500000: //RootNode
     13700000: Cylinder
+    13700002: Tree005
   externalObjects: {}
   materials:
     importMaterials: 0
