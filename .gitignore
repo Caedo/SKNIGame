@@ -40,3 +40,7 @@ SKNIGame/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs
 SKNIGame/Assets/Plugins/Editor/JetBrains.meta
 SKNIGame/Assets/Plugins/Editor.meta
 SKNIGame/Assets/Plugins.meta
+
+#Blender backups
+*.blend[0-9]
+*.blend[0-9].meta

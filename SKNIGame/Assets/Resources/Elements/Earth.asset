@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: Earth
   m_EditorClassIdentifier: 
   m_StrongAgainst:
-  - {fileID: 11400000, guid: fdc9d0e5f59db05409e116f0d3635aac, type: 2}
+  - {fileID: 11400000, guid: 3e44e653fb6e7a44bb6c2fe2c296d650, type: 2}
   m_WeakAgainst:
   - {fileID: 11400000, guid: 02ef297f9e44dae4cb5e186a092c7198, type: 2}

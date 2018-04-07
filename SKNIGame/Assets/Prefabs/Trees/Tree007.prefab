@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4084923898290452}
   - component: {fileID: 137242723348281870}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,7 +241,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: f517cbc43e9c5e94f8665ac20af7fd03, type: 3}
+  m_Mesh: {fileID: 4300002, guid: f517cbc43e9c5e94f8665ac20af7fd03, type: 3}
   m_Bones:
   - {fileID: 4084315973523216}
   - {fileID: 4967554362757478}
