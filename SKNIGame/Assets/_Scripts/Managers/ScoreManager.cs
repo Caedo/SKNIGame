@@ -33,7 +33,7 @@ public class ScoreManager : MonoBehaviour
 		//Increment combo, this must be first to make sure this will be at least 1
 		m_Combo++;
 		//Add score
-		m_Score += /*(int)health.m_MaxHealth*/ 10 * m_Combo;
+		m_Score += CalculateComboScore(/*score*/ 10);
 		//Set combo timer
 		m_TargetComboTime = CalculateComboTime();	
 	}
@@ -43,10 +43,10 @@ public class ScoreManager : MonoBehaviour
 		EnemyHealh.OnEnemyDeath -= OnEnemyDeath;
 	}
 
-	//Calculate time for combo count. If higher combo then less time.
+	//Calculate time in seconds for combo count. If higher combo then less time.
 	private float CalculateComboTime()
 	{
-		return (float) Math.Pow(0.99, m_Combo) * 30;
+		return (float) Math.Pow(0.97, m_Combo) * 15;
 	}
 
 	//Calculate points with combo. If higher combo than more points.
