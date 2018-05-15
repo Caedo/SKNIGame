@@ -44,7 +44,7 @@ public class GestureCircleController : MonoBehaviour {
 			//instantiate and initialize
 			m_ControlPoints[i] = Instantiate(m_ControlPointPrefab, transform);
 			m_ControlPoints[i].Initialize(this, i);
-			m_ControlPoints[i].transform.position = pos;
+			m_ControlPoints[i].transform.localPosition = pos;
 
 			m_ControlPointsTargetPositions[i] = pos;
 		}

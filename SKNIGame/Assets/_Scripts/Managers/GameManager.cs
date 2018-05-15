@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public GameObject m_Player;
+    public PlayerTower m_StartingTower;
+
     public static GameManager Instance { get; private set; }
 
     public List<PillarHealth> ActivePillars { get; private set; }
@@ -25,6 +29,8 @@ public class GameManager : MonoBehaviour
     private void Start() {
         //Probably this should be changed
         ActivePillars = FindObjectsOfType<PillarHealth>().ToList();
+
+        m_Player.transform.position = m_StartingTower.m_PlyerAnchor.position;
     }
 
     void OnPillarDestroyed(PillarHealth pillar) {
