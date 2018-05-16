@@ -11,7 +11,7 @@ public class EnemyStats : ScriptableObject {
 	public float m_AttacksPerSecond;
 	public float m_AttackRange;
 	public float m_MovementSpeed;
-	public float m_ScoreValue;
+	public int m_ScoreValue;
 	public string m_Description;
 
 	public float TimeBetweenAttacks {

@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class EnemyHealh : LivingEntity
 {
-	public static System.Action OnEnemyDeath;
+	public static System.Action<EnemyHealh> OnEnemyDeath;
+
+	[HideInInspector]
+	public EnemyStats m_Stats;
 
 	public void Initialize(EnemyStats stats){
 		m_MaxHealth = stats.m_Health;
 		m_DefenseElement = stats.m_Element;
+
+		m_Stats = stats;
 	}
     protected override void Die()
     {
 		if(OnEnemyDeath != null)
-			OnEnemyDeath();
+			OnEnemyDeath(this);
         Destroy(gameObject);
     }
 }

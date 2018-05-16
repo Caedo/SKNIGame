@@ -81,7 +81,7 @@ public class Spawner : MonoBehaviour {
 	}
 
 	//Called when some enemy was killed
-	void OnEnemyDeath() {
+	void OnEnemyDeath(EnemyHealh health) {
 		m_EnemiesAlive--;
 	}
 
