@@ -18,4 +18,5 @@ MonoBehaviour:
   m_AttacksPerSecond: 1
   m_AttackRange: 2
   m_MovementSpeed: 10
+  m_ScoreValue: 100
   m_Description: Kappa
