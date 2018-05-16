@@ -15,6 +15,8 @@ public class CharacterMouseControl : MonoBehaviour {
 
 	private Transform m_MoveTransform;
 
+	bool pointingToMove;
+
 	float m_Pitch;
 	float m_Yaw;
 
@@ -26,6 +28,8 @@ public class CharacterMouseControl : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.Locked;
 		m_PointerLine.enabled = false;
 
+		InputController.Instance.SubscribeEventHandler("MoveKeyDown", HandleMoveKeyDown);
+		InputController.Instance.SubscribeEventHandler("MoveKeyUp", HandleMoveKeyUp);		
 	}
 
 	void Update() {
@@ -36,11 +40,7 @@ public class CharacterMouseControl : MonoBehaviour {
 
 		m_Camera.localRotation = Quaternion.Euler(m_Pitch, m_Yaw, 0);
 
-		if (Input.GetMouseButtonDown(1)) {
-			m_PointerLine.enabled = true;
-		}
-
-		if (Input.GetMouseButton(1)) {
+		if (pointingToMove) {
 			Ray ray = new Ray(m_PointerOriginTransform.position, m_PointerOriginTransform.forward);
 			RaycastHit hit;
 			float dist = 200f;
@@ -54,12 +54,19 @@ public class CharacterMouseControl : MonoBehaviour {
 			m_PointerLine.SetPositions(new [] { m_PointerOriginTransform.position, hitPosition });
 		}
 
-		if (Input.GetMouseButtonUp(1)) {
-			m_PointerLine.enabled = false;
+	}
 
-			if (m_MoveTransform != null) {
-				transform.position = m_MoveTransform.position;
-			}
+	void HandleMoveKeyDown() {
+		m_PointerLine.enabled = true;
+		pointingToMove = true;
+	}
+	void HandleMoveKeyUp() {
+		m_PointerLine.enabled = false;
+
+		if (m_MoveTransform != null) {
+			transform.position = m_MoveTransform.position;
 		}
+
+		pointingToMove = false;		
 	}
 }

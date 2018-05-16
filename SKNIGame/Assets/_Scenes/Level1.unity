@@ -767,6 +767,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Player: {fileID: 142775909}
   m_StartingTower: {fileID: 663435516}
+--- !u!1 &778907672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 778907674}
+  - component: {fileID: 778907673}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &778907673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 778907672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3084f34addca92847b091f2e08c679bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_KeyList:
+  - inputName: MoveKeyDown
+    keyCode: 324
+    eventType: 0
+  - inputName: MoveKeyUp
+    keyCode: 324
+    eventType: 2
+--- !u!4 &778907674
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 778907672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -100.828285, y: -34.41693, z: 11.04966}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &792454986
 Prefab:
   m_ObjectHideFlags: 0

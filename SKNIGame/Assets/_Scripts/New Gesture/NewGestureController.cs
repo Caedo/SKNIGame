@@ -6,6 +6,8 @@ using UnityEngine;
 public class NewGestureController : MonoBehaviour {
     public NewGestureLibrary m_Library;
     public Transform m_HandCollider;
+    public Transform m_PointerRayOrigin;
+    
     public float m_CircleRadius;
 
     public float m_CircleDistance;
@@ -22,7 +24,6 @@ public class NewGestureController : MonoBehaviour {
 
     Plane m_CirclePlane;
 
-    private Transform m_Cam;
 
     private Vector3 MouseWorldPostion {
         get {
@@ -40,22 +41,17 @@ public class NewGestureController : MonoBehaviour {
         m_CircleController = GetComponentInChildren<GestureCircleController>();
         m_CircleController.Create(m_ControlPointsCount, m_CircleRadius, this);
 
-        m_Cam = Camera.main.transform;
+        m_PointerRayOrigin = Camera.main.transform;
+
+        InputController.Instance.SubscribeEventHandler("CreateSpellDown", StartTraicing);
+        InputController.Instance.SubscribeEventHandler("CreateSpellUp", EndTracing);        
     }
 
     void Update() {
-        if (Input.GetMouseButtonDown(0)) {
-            StartTraicing();
-        }
-
-        if (Input.GetMouseButtonUp(0)) {
-            EndTracing();
-        }
-
         //Just for mouse control...
         if (m_IsTracing) {
             //m_HandCollider.position = MouseWorldPostion;
-            Ray ray = new Ray(m_Cam.position, m_Cam.forward);
+            Ray ray = new Ray(m_PointerRayOrigin.position, m_PointerRayOrigin.forward);
             float dist;
             if (m_CirclePlane.Raycast(ray, out dist)) {
                 m_HandCollider.position = ray.GetPoint(dist);
@@ -67,7 +63,7 @@ public class NewGestureController : MonoBehaviour {
     void StartTraicing() {
         
         m_CircleController.transform.position = MouseWorldPostion;        
-        m_CircleController.transform.LookAt(m_Cam);
+        m_CircleController.transform.LookAt(m_PointerRayOrigin);
 
         m_CircleController.Show();
         m_HandCollider.position = MouseWorldPostion;
