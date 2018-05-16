@@ -11,4 +11,16 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Input Data List
   m_EditorClassIdentifier: Assembly-CSharp::InputDataList
-  m_KeyList: []
+  m_KeyList:
+  - inputName: MoveKeyDown
+    keyCode: 324
+    eventType: 0
+  - inputName: MoveKeyUp
+    keyCode: 324
+    eventType: 2
+  - inputName: CreateSpellDown
+    keyCode: 323
+    eventType: 0
+  - inputName: CreateSpellUp
+    keyCode: 323
+    eventType: 2

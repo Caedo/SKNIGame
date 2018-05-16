@@ -777,7 +777,7 @@ GameObject:
   - component: {fileID: 778907674}
   - component: {fileID: 778907673}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Input Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -794,13 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3084f34addca92847b091f2e08c679bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_KeyList:
-  - inputName: MoveKeyDown
-    keyCode: 324
-    eventType: 0
-  - inputName: MoveKeyUp
-    keyCode: 324
-    eventType: 2
+  m_InputDataList: {fileID: 11400000, guid: d97283258c63a3a43b5b4fd8bae0d4fd, type: 2}
 --- !u!4 &778907674
 Transform:
   m_ObjectHideFlags: 0
@@ -808,7 +802,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 778907672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -100.828285, y: -34.41693, z: 11.04966}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1501,6 +1495,11 @@ Prefab:
       propertyPath: m_Radius
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114148014196374774, guid: e792d4da33185aa4991ba0f6393d0cf3,
+        type: 2}
+      propertyPath: m_PointerRayOrigin
+      value: 
+      objectReference: {fileID: 1167781163}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e792d4da33185aa4991ba0f6393d0cf3, type: 2}
   m_IsPrefabParent: 0
