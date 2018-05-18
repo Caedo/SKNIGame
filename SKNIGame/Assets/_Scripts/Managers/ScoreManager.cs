@@ -4,10 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour {
-	public int m_Score { get; private set; }
-	public int m_Combo { get; private set; }
 
-	private float m_TargetComboTime;
+	// Score
+	public int m_Score {get; private set;}
+	// Current combo
+	public int m_Combo {get; private set;}
+	// Combo time left
+	public float m_TargetComboTime {get; private set;}
+	// Current combo time
+	public float m_CurrentMaxTargetComboTime { get; private set; }
 
 	void Awake() {
 		EnemyHealh.OnEnemyDeath += OnEnemyDeath;
@@ -30,6 +35,7 @@ public class ScoreManager : MonoBehaviour {
 		m_Score += CalculateComboScore(health.m_Stats.m_ScoreValue);
 		//Set combo timer
 		m_TargetComboTime = CalculateComboTime();
+		m_CurrentMaxTargetComboTime = m_TargetComboTime;
 	}
 
 	private void OnDisable() {
