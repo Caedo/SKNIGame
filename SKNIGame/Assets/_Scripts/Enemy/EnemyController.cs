@@ -119,4 +119,8 @@ public class EnemyController : MonoBehaviour {
             FindTarget();
         }
     }
+
+    private void OnDestroy() {
+        PillarHealth.OnPillarDestroy -= OnPillarDestroyed;
+    }
 }

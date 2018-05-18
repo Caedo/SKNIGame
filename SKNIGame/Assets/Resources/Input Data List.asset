@@ -24,3 +24,6 @@ MonoBehaviour:
   - inputName: CreateSpellUp
     keyCode: 323
     eventType: 2
+  - inputName: CastSpellDown
+    keyCode: 32
+    eventType: 1
