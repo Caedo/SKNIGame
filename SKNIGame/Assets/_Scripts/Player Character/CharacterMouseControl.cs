@@ -13,7 +13,7 @@ public class CharacterMouseControl : MonoBehaviour {
 	public Transform m_PointerOriginTransform;
 	private LineRenderer m_PointerLine;
 
-	private Transform m_MoveTransform;
+	private PlayerTower m_SelectedTower;
 
 	bool pointingToMove;
 
@@ -45,10 +45,12 @@ public class CharacterMouseControl : MonoBehaviour {
 			RaycastHit hit;
 			float dist = 200f;
 			if (Physics.Raycast(ray, out hit, float.MaxValue, m_TowerMask)) {
-				m_MoveTransform = hit.collider.GetComponent<PlayerTower>().m_PlyerAnchor;
+				m_SelectedTower = hit.collider.GetComponent<PlayerTower>();
+				m_SelectedTower.SetSelection(true);
 				dist = hit.distance;
 			} else {
-				m_MoveTransform = null;
+				m_SelectedTower?.SetSelection(false);
+				m_SelectedTower = null;
 			}
 			Vector3 hitPosition = ray.origin + ray.direction * dist;
 			m_PointerLine.SetPositions(new [] { m_PointerOriginTransform.position, hitPosition });
@@ -63,8 +65,9 @@ public class CharacterMouseControl : MonoBehaviour {
 	void HandleMoveKeyUp() {
 		m_PointerLine.enabled = false;
 
-		if (m_MoveTransform != null) {
-			transform.position = m_MoveTransform.position;
+		if (m_SelectedTower != null) {
+			m_SelectedTower.SetSelection(false);
+			transform.position = m_SelectedTower.m_PlyerAnchor.position;
 		}
 
 		pointingToMove = false;		

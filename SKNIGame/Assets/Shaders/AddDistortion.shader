@@ -15,11 +15,13 @@
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Opaque"
-				"Queue" = "Transparent" }
-		LOD 100
-		ZWrite Off
-		Blend One One
+		Tags { "RenderType"="Transparent"
+				"Queue" = "Transparent"
+				"DisableBatching" = "True" }
+		//LOD 100
+		//ZWrite Off
+		Blend One One 
+		Cull Off
 
 		Pass
 		{

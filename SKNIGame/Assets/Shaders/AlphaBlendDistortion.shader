@@ -16,10 +16,11 @@
 	SubShader
 	{
 		Tags { "RenderType"="Opaque"
-				"Queue" = "Transparent" }
+				"Queue" = "Transparent"
+				"DisableBatching" = "True" }
 		LOD 100
 		ZWrite Off
-		Blend One OneMinusSrcAlpha
+		Blend SrcAlpha OneMinusSrcAlpha
 
 		Pass
 		{

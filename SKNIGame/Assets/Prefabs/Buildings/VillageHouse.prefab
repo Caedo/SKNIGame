@@ -170,8 +170,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1801665962990734}
-  m_LocalRotation: {x: -0, y: -0.31627762, z: -0, w: 0.94866663}
-  m_LocalPosition: {x: 21, y: -2.5, z: -1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.54, y: 0, z: -25.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4948231466174912}
@@ -210,7 +210,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 5f1102ffa569f814aaea8e08ccbfbc65, type: 3}
+  - {fileID: 2100000, guid: 2ec7d4ffe2a73f7428aecd258e3451bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -245,7 +245,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 5f1102ffa569f814aaea8e08ccbfbc65, type: 3}
+  - {fileID: 2100000, guid: cf1981d758cf13c42a24a24d4d8262e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -280,7 +280,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 5f1102ffa569f814aaea8e08ccbfbc65, type: 3}
+  - {fileID: 2100000, guid: 23c4868a482e12f40b60d977dc02689c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -315,7 +315,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 5f1102ffa569f814aaea8e08ccbfbc65, type: 3}
+  - {fileID: 2100000, guid: 43985fd9025f0a44ab8cd831d2de369d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -350,7 +350,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 5f1102ffa569f814aaea8e08ccbfbc65, type: 3}
+  - {fileID: 2100000, guid: 2a6c35d1798afa04fb8d3d1c8419f2e5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
