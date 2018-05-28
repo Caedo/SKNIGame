@@ -68,7 +68,7 @@
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				UNITY_TRANSFER_FOG(o,o.vertex);
-				float colBlend = v.vertex.y * 0.5 + 0.5;
+				float colBlend = v.uv.y;
 				o.color = lerp(_MainColorA, _MainColorB, colBlend + _Offset);
 				o.modelPos = v.vertex;
 				return o;

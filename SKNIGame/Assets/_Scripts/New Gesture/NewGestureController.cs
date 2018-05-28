@@ -41,7 +41,8 @@ public class NewGestureController : MonoBehaviour {
         m_CircleController = GetComponentInChildren<GestureCircleController>();
         m_CircleController.Create(m_ControlPointsCount, m_CircleRadius, this);
 
-        m_PointerRayOrigin = Camera.main.transform;
+        if(m_PointerRayOrigin == null)
+            m_PointerRayOrigin = Camera.main.transform;
 
         InputController.Instance.SubscribeEventHandler("CreateSpellDown", StartTraicing);
         InputController.Instance.SubscribeEventHandler("CreateSpellUp", EndTracing);        

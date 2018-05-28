@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23939483583598688}
   - component: {fileID: 114121479570730830}
   - component: {fileID: 54372054388135736}
-  - component: {fileID: 65233400749585420}
+  - component: {fileID: 135757167157589166}
   m_Layer: 0
   m_Name: Gesture_Control_Point
   m_TagString: Untagged
@@ -58,7 +58,6 @@ GameObject:
   - component: {fileID: 224396354814562668}
   - component: {fileID: 223972788061328764}
   - component: {fileID: 114315755750329222}
-  - component: {fileID: 114406202609399708}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -73,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1643871283362860}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 35.83, y: 1.6446781, z: -4.2486477}
+  m_LocalPosition: {x: -9.736282, y: 64.54663, z: -178.46826}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 224396354814562668}
@@ -93,8 +92,9 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: df7c2fcd9c2564d4eb079153030a1bd9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,7 +120,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1643871283362860}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 8a3b539b93dc5d741aaf3272d649054d, type: 3}
 --- !u!54 &54372054388135736
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -136,18 +136,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65233400749585420
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1643871283362860}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114121479570730830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -181,22 +169,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 150
---- !u!114 &114406202609399708
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1884612624907608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &114886522175782486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -230,6 +202,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 1
+--- !u!135 &135757167157589166
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1643871283362860}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.97899
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!222 &222537828954534116
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -263,7 +247,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1884612624907608}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.51}
+  m_LocalPosition: {x: 0, y: 0, z: -0.35619354}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 224986294373485092}
