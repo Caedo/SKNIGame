@@ -4,7 +4,7 @@ using UnityEngine;
 
 //[CreateAssetMenu]
 public class WaveData {//: ScriptableObject {
-	public List<SubWave> m_SubWaves;
+	public List<SubWave> m_SubWaves = new List<SubWave>();
 
 	public int SubWavesCount { get { return m_SubWaves.Count; } }
 }
@@ -13,7 +13,7 @@ public class WaveData {//: ScriptableObject {
 public class SubWave {
 	public string m_Name;
 	public float m_WaitTime;
-	public List<EnemyCount> m_Enemies;
+	public List<EnemyCount> m_Enemies = new List<EnemyCount>();
 
 	[System.Serializable]
 	public class EnemyCount {

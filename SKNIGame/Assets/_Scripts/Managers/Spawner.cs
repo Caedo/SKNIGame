@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour {
 
 
 	public Transform[] m_SpawnPoints;
-	public List<WaveData> m_Waves;
+	public List<WaveData> m_Waves = new List<WaveData>();
 	public float m_WaveDelay = 15f; //This is time that has to pass between two waves
 	public float m_SpawnDelay = 0.5f; //time between two spawns - prevent object clipping
 	public float WaveTimer { get; private set; } // timer for waiting between waves 

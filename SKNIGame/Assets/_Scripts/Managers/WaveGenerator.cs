@@ -31,6 +31,8 @@ public static class WaveGenerator {
                 subWaveStrength -= cost; 
                 enemyList.Add(enemy);
             }
+            if(cost <= 0) //second infinity loop
+                break;
         }
         return enemyList;
     }

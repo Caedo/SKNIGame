@@ -16,6 +16,7 @@ public class EnemyLibrary : ScriptableObject {
         cost = 0;
         while (searchTime < 20)
         {
+            searchTime++; //First infinity loop...
             ElementItem.EnemyItem e = element.enemyList[Random.Range(0, element.enemyList.Count - 1)];
             if (e.cost <= maxEnemyCost)
             {
