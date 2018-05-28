@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
+    public EnemyLibrary enemyLibrary;
+    public int waveStrength = 20;
+    public int numOfSubWave = 2;
+
+
 	public Transform[] m_SpawnPoints;
 	public List<WaveData> m_Waves;
 	public float m_WaveDelay = 15f; //This is time that has to pass between two waves
@@ -16,6 +21,7 @@ public class Spawner : MonoBehaviour {
 	bool m_WaitingForNextWave = true; 
 	Queue<Transform> m_SpawnPointsQueue = new Queue<Transform>();
 
+
 	void Awake() {
 		m_WaitForSpawn = new WaitForSeconds(m_SpawnDelay);
 		EnemyHealh.OnEnemyDeath += OnEnemyDeath;
@@ -25,6 +31,8 @@ public class Spawner : MonoBehaviour {
 		foreach (var item in m_SpawnPoints) {
 			m_SpawnPointsQueue.Enqueue(item);
 		}
+        //create first wave
+        m_Waves.Add(WaveGenerator.GenerateWaveData(enemyLibrary, waveStrength, numOfSubWave));
 	}
 
 	private void Update() {

@@ -7,7 +7,8 @@ using UnityEngine.AI;
 public enum TargetPrioritization { LowestHealth, GreatestHealth, Closest, Farthest }
 
 [RequireComponent(typeof(EnemyHealh), typeof(NavMeshAgent))]
-public class EnemyController : MonoBehaviour {
+public class EnemyController : MonoBehaviour
+{
 
     public EnemyStats m_Stats;
     public TargetPrioritization m_TargetPrioritization;
@@ -19,18 +20,21 @@ public class EnemyController : MonoBehaviour {
 
     List<PillarHealth> m_ActivePillars;
 
-    private void Awake() {
+    private void Awake()
+    {
         Health = GetComponent<EnemyHealh>();
         m_Agent = GetComponent<NavMeshAgent>();
 
         PillarHealth.OnPillarDestroy += OnPillarDestroyed;
     }
 
-    public void InitializeTargets(List<PillarHealth> pillars) {
+    public void InitializeTargets(List<PillarHealth> pillars)
+    {
         m_ActivePillars = pillars;
     }
 
-    private void Start() {
+    private void Start()
+    {
         //Initialize properties
         Health.Initialize(m_Stats);
         m_Agent.speed = m_Stats.m_MovementSpeed;
@@ -39,30 +43,35 @@ public class EnemyController : MonoBehaviour {
         FindTarget();
     }
 
-    private void Update() {
+    private void Update()
+    {
 
         m_AttackTimer += Time.deltaTime;
         if (m_AttackTimer >= m_Stats.TimeBetweenAttacks &&
             m_Target != null &&
-            Vector3.Distance(m_Target.transform.position, transform.position) <= m_Stats.m_AttackRange) {
+            Vector3.Distance(m_Target.transform.position, transform.position) <= m_Stats.m_AttackRange)
+        {
 
             m_AttackTimer = 0;
             Attack();
         }
     }
 
-    private void Attack() {
+    private void Attack()
+    {
         m_Target.Damage(m_Stats.m_Damage, m_Stats.m_Element);
     }
 
     //TODO: Only for test. Change it to something normal...
     //Find closest target and start move
-    private void FindTarget() {
+    private void FindTarget()
+    {
         m_Target = null;
         if (m_ActivePillars.Count == 0)
             return;
 
-        switch (m_TargetPrioritization) {
+        switch (m_TargetPrioritization)
+        {
             case TargetPrioritization.Closest:
             case TargetPrioritization.Farthest:
                 FindTargetBasedOnDistance();
@@ -76,34 +85,41 @@ public class EnemyController : MonoBehaviour {
         SetDestination();
     }
 
-    void FindTargetBasedOnHealth() {
+    void FindTargetBasedOnHealth()
+    {
         bool findGreatest = m_TargetPrioritization == TargetPrioritization.GreatestHealth;
 
         float compValue = findGreatest ? float.MinValue : float.MaxValue;
 
-        for (int i = 0; i < m_ActivePillars.Count; i++) {
+        for (int i = 0; i < m_ActivePillars.Count; i++)
+        {
             float health = m_ActivePillars[i].CurrentHealth;
-            if (findGreatest ? health > compValue : compValue > health) {
+            if (findGreatest ? health > compValue : compValue > health)
+            {
                 compValue = health;
                 m_Target = m_ActivePillars[i];
             }
         }
     }
 
-    void FindTargetBasedOnDistance() {
+    void FindTargetBasedOnDistance()
+    {
         bool findGreatest = m_TargetPrioritization == TargetPrioritization.Farthest;
 
         float compValue = findGreatest ? float.MinValue : float.MaxValue;
 
-        for (int i = 0; i < m_ActivePillars.Count; i++) {
+        for (int i = 0; i < m_ActivePillars.Count; i++)
+        {
             float dist = (transform.position - m_ActivePillars[i].transform.position).sqrMagnitude;
-            if (findGreatest ? dist > compValue : compValue > dist) {
+            if (findGreatest ? dist > compValue : compValue > dist)
+            {
                 compValue = dist;
                 m_Target = m_ActivePillars[i];
             }
         }
     }
-    void SetDestination() {
+    void SetDestination()
+    {
         Vector3 dir = (transform.position - m_Target.transform.position).normalized;
 
         //Set Destination based on actual attack range
@@ -111,16 +127,19 @@ public class EnemyController : MonoBehaviour {
         //Debug.Log(m_Agent.destination);
     }
 
-    void OnPillarDestroyed(PillarHealth pillar) {
+    void OnPillarDestroyed(PillarHealth pillar)
+    {
         m_ActivePillars.Remove(pillar);
 
         //when attacked pillar is destroyed find next
-        if (pillar == m_Target) {
+        if (pillar == m_Target)
+        {
             FindTarget();
         }
     }
 
-    private void OnDestroy() {
+    private void OnDestroy()
+    {
         PillarHealth.OnPillarDestroy -= OnPillarDestroyed;
     }
 }
