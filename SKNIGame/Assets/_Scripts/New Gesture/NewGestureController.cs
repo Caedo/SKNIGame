@@ -7,12 +7,12 @@ public class NewGestureController : MonoBehaviour {
     public NewGestureLibrary m_Library;
     public Transform m_HandCollider;
     public Transform m_PointerRayOrigin;
-    
+
     public float m_CircleRadius;
 
     public float m_CircleDistance;
 
-    public System.Action<NewGesture, Vector3> OnGestureMatch;
+    public System.Action<Gesture> OnGestureMatch;
 
     GestureCircleController m_CircleController;
 
@@ -24,6 +24,7 @@ public class NewGestureController : MonoBehaviour {
 
     Plane m_CirclePlane;
 
+    public static NewGestureController Instance { get; private set; }
 
     private Vector3 MouseWorldPostion {
         get {
@@ -37,15 +38,24 @@ public class NewGestureController : MonoBehaviour {
         }
     }
 
+    private void Awake() {
+        if (Instance != null) {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
+
     private void Start() {
         m_CircleController = GetComponentInChildren<GestureCircleController>();
         m_CircleController.Create(m_ControlPointsCount, m_CircleRadius, this);
 
-        if(m_PointerRayOrigin == null)
+        if (m_PointerRayOrigin == null)
             m_PointerRayOrigin = Camera.main.transform;
 
         InputController.Instance.SubscribeEventHandler("CreateSpellDown", StartTraicing);
-        InputController.Instance.SubscribeEventHandler("CreateSpellUp", EndTracing);        
+        InputController.Instance.SubscribeEventHandler("CreateSpellUp", EndTracing);
     }
 
     void Update() {
@@ -62,10 +72,11 @@ public class NewGestureController : MonoBehaviour {
     }
 
     void StartTraicing() {
-        
-        m_CircleController.transform.position = MouseWorldPostion;        
+
+        m_CircleController.transform.position = MouseWorldPostion;
         m_CircleController.transform.LookAt(m_PointerRayOrigin);
 
+        m_HandCollider.gameObject.SetActive(true);
         m_CircleController.Show();
         m_HandCollider.position = MouseWorldPostion;
 
@@ -78,14 +89,16 @@ public class NewGestureController : MonoBehaviour {
 
     void EndTracing() {
         m_CircleController.Hide();
+        m_HandCollider.gameObject.SetActive(false);
+        
         m_IsTracing = false;
 
         var gesture = m_Library.MatchGesture(m_CurrentSequence);
         if (gesture != null) {
-            Debug.Log(gesture.m_Name);
+            Debug.Log(gesture.name);
 
             if (OnGestureMatch != null) {
-                OnGestureMatch(gesture, m_CircleController.transform.position);
+                OnGestureMatch(gesture);
             }
         }
     }

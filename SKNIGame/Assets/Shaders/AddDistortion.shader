@@ -19,7 +19,7 @@
 				"Queue" = "Transparent"
 				"DisableBatching" = "True" }
 		//LOD 100
-		//ZWrite Off
+		ZWrite Off
 		Blend One One 
 		Cull Off
 

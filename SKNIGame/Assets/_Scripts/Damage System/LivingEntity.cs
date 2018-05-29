@@ -15,7 +15,10 @@ public abstract class LivingEntity : MonoBehaviour {
 	}
 
 	public virtual void Damage(float dmg, Element attackElement) {
-		CurrentHealth -= dmg * attackElement.GetMultiplierAgainst(m_DefenseElement);
+		if(attackElement != null)
+			dmg *= attackElement.GetMultiplierAgainst(m_DefenseElement);
+			
+		CurrentHealth -= dmg;
 		if (CurrentHealth <= 0) {
 			Die();
 		}

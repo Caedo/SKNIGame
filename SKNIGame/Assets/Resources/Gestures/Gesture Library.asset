@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a034caf4ff89f2d4887bf712e802b1f6, type: 3}
+  m_Name: Gesture Library
+  m_EditorClassIdentifier: 
+  m_GestureCheckType: 0
+  m_Gestures:
+  - {fileID: 11400000, guid: 0639b5f9a28cee842835681788158910, type: 2}
+  - {fileID: 11400000, guid: 4523aab29aa7852409a124679f6d5f36, type: 2}
+  - {fileID: 11400000, guid: f528e5ea7f0959545861d5252488356b, type: 2}
+  - {fileID: 11400000, guid: a65670cd800696942b1ada00bd531d30, type: 2}
+  - {fileID: 11400000, guid: 9a2d8b89eed493048b35ada9c2965bb1, type: 2}
