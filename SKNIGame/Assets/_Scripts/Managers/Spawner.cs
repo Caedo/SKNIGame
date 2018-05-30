@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour {
 	public float WaveTimer { get; private set; } // timer for waiting between waves 
 
 	WaitForSeconds m_WaitForSpawn;
-	int m_WaveNumber = -1; //current wave number
+	public int m_WaveNumber { get; private set; } = -1; //current wave number
 	int m_EnemiesAlive = 0;
 	bool m_WaitingForNextWave = true;
 	Queue<Transform> m_SpawnPointsQueue = new Queue<Transform>();
