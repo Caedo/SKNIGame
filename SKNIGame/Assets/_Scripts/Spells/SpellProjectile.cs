@@ -6,6 +6,7 @@ using UnityEngine;
 public class SpellProjectile : MonoBehaviour {
 
 	public float m_ProjectileSpeed;
+	public ParticleSystem m_ProjectileParticles;
 
 	SpellData m_SpellData;
 	Rigidbody m_Body;
@@ -18,16 +19,17 @@ public class SpellProjectile : MonoBehaviour {
 		m_Body = GetComponent<Rigidbody>();
 	}
 
-	void Start()
-	{
+	void Start() {
 		m_Body.velocity = transform.forward * m_ProjectileSpeed;
 	}
 
-	void OnTriggerEnter(Collider other)
-	{
+	void OnTriggerEnter(Collider other) {
 		//Debug.Log(other)
-		Instantiate(m_SpellData.m_ImpactEffectPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
+		Instantiate(m_SpellData.m_ImpactEffectPrefab, transform.position, Quaternion.identity);
 
-		Destroy(gameObject);
+		if (m_ProjectileParticles != null)
+			Destroy(gameObject, m_ProjectileParticles.main.startLifetime.constantMax);
+		else
+			Destroy(gameObject);
 	}
 }

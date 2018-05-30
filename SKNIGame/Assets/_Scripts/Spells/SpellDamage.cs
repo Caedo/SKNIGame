@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpellDamage : MonoBehaviour {
 
+    public float m_YStartOffset;
+
     public float m_DamageValue;
     public float m_DamageRadius;
     public LayerMask m_DamagableMask;
@@ -13,9 +15,10 @@ public class SpellDamage : MonoBehaviour {
 
     protected void Awake() {
         m_Particles = GetComponent<ParticleSystem>();
-        if(m_Particles == null){
+        if (m_Particles == null) {
             m_Particles = GetComponentInChildren<ParticleSystem>();
         }
+        transform.position += Vector3.up * m_YStartOffset;        
     }
 
     protected virtual void Start() {
@@ -35,5 +38,10 @@ public class SpellDamage : MonoBehaviour {
 
     protected void DestroyAfterParicleDuration() {
         Destroy(gameObject, m_Particles.main.duration);
+    }
+
+    void OnDrawGizmosSelected() {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, m_DamageRadius);
     }
 }

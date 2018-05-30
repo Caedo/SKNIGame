@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
 
     public GameObject m_Player;
     public PlayerTower m_StartingTower;
@@ -12,6 +11,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public List<PillarHealth> ActivePillars { get; private set; }
+
+    public bool IsGameStarted { get; private set; }
+
+    public System.Action OnGameOver;
+    public System.Action OnGameWon;
 
     private void Awake() {
         //I'm evil so I'm creating singletons!
@@ -42,7 +46,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void StartGame() {
+        IsGameStarted = true;
+    }
+
     void GameOver() {
-        Debug.Log("GameOver");
+        OnGameOver?.Invoke();
+    }
+
+    public void GameWon() {
+        OnGameWon?.Invoke();
     }
 }

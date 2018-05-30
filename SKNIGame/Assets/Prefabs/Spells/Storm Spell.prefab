@@ -157,8 +157,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1997913954074428}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.4753675, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 4.5, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4334304668693952}
   - {fileID: 4056281312206688}
@@ -212,14 +212,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785cec38c0d8d824982efd117315697e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_YStartOffset: 0.5
   m_DamageValue: 40
-  m_DamageRadius: 8
+  m_DamageRadius: 4
   m_DamagableMask:
     serializedVersion: 2
     m_Bits: 4096
   m_DamageElement: {fileID: 11400000, guid: 3e44e653fb6e7a44bb6c2fe2c296d650, type: 2}
-  m_TickCount: 3
-  m_TimeBetweenTicks: 0.7
+  m_TickCount: 4
+  m_TimeBetweenTicks: 0.4
   m_UseTickEffects: 0
   m_TickEffectParticle: {fileID: 0}
   m_TickEffectBurstCount: 0
@@ -294,7 +295,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -4825,7 +4826,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -9413,7 +9414,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -13944,7 +13945,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3

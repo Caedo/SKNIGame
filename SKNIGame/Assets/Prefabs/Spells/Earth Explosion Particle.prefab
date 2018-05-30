@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612938cd8b374bf4fac3a001c32e494e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_YStartOffset: 1
   m_DamageValue: 100
   m_DamageRadius: 8
   m_DamagableMask:

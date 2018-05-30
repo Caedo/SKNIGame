@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour {
 	WaitForSeconds m_WaitForSpawn;
 	int m_WaveNumber = -1; //current wave number
 	int m_EnemiesAlive = 0;
-	bool m_WaitingForNextWave = true; 
+	bool m_WaitingForNextWave = true;
 	Queue<Transform> m_SpawnPointsQueue = new Queue<Transform>();
 
 	void Awake() {
@@ -25,6 +25,8 @@ public class Spawner : MonoBehaviour {
 		foreach (var item in m_SpawnPoints) {
 			m_SpawnPointsQueue.Enqueue(item);
 		}
+
+		WaveTimer = m_WaveDelay;
 	}
 
 	private void Update() {
@@ -45,14 +47,14 @@ public class Spawner : MonoBehaviour {
 
 		if (m_WaveNumber >= m_Waves.Count) {
 			//End Game
-			Debug.Log("Game ended");
+			GameManager.Instance.GameWon();
 		} else {
-			Debug.Log("Spawning next Wave");		
+			//Debug.Log("Spawning next Wave");
 
 			WaveData currentWave = m_Waves[m_WaveNumber];
 			for (int i = 0; i < currentWave.SubWavesCount; i++) {
 
-				Debug.Log("Spawning SubWave");
+				//Debug.Log("Spawning SubWave");
 				SubWave currentSubWave = currentWave.m_SubWaves[i];
 				for (int j = 0; j < currentSubWave.m_Enemies.Count; j++) { //Spawn all enemies in subwave
 
@@ -66,14 +68,14 @@ public class Spawner : MonoBehaviour {
 						m_SpawnPointsQueue.Enqueue(spawnPoint);
 						m_EnemiesAlive++;
 
-						yield return m_WaitForSpawn;					
+						yield return m_WaitForSpawn;
 					}
 				}
-				Debug.Log("Waiting for SubWave");
+				//Debug.Log("Waiting for SubWave");
 				yield return new WaitForSeconds(currentSubWave.m_WaitTime);
 			}
 
-			Debug.Log("Wave Ended");
+			//Debug.Log("Wave Ended");
 		}
 
 		m_WaitingForNextWave = true;
@@ -86,8 +88,8 @@ public class Spawner : MonoBehaviour {
 	}
 
 	//Next wave can be created when all enemies were spawned and then killed
-	public bool CanSpawnNextWave() { 
-		return m_WaitingForNextWave && m_EnemiesAlive == 0;
+	public bool CanSpawnNextWave() {
+		return m_WaitingForNextWave && m_EnemiesAlive == 0 && GameManager.Instance.IsGameStarted;
 	}
 
 }

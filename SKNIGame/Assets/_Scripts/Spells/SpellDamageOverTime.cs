@@ -29,12 +29,4 @@ public class SpellDamageOverTime : SpellDamage {
 		DestroyAfterParicleDuration();
 	}
 
-	/// <summary>
-	/// Callback to draw gizmos only if the object is selected.
-	/// </summary>
-	void OnDrawGizmosSelected()
-	{
-		Gizmos.color = Color.green;
-		Gizmos.DrawWireSphere(transform.position, m_DamageRadius);
-	}
 }

@@ -712,7 +712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DefenseElement: {fileID: 11400000, guid: ce9a308b8b90faf4d8c0db33b7188c05, type: 2}
-  m_MaxHealth: 100
+  m_MaxHealth: 200
   m_LivingModel: {fileID: 1571556179239280}
   m_DestroyedModel: {fileID: 0}
 --- !u!198 &198538081634016190

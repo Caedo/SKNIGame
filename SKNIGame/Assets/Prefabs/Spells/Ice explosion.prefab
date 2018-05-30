@@ -146,8 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612938cd8b374bf4fac3a001c32e494e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_YStartOffset: 1
   m_DamageValue: 100
-  m_DamageRadius: 10
+  m_DamageRadius: 5
   m_DamagableMask:
     serializedVersion: 2
     m_Bits: 4096
@@ -13875,7 +13876,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1527439219626216}
   serializedVersion: 5
-  lengthInSec: 1
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   looping: 0

@@ -29,6 +29,11 @@ public class SpellsController : MonoBehaviour {
 	void GestureMatched(Gesture gesture) {
 		m_ActiveSpell = m_SpellDataList.Find(d => d.m_GestureToMatch == gesture);
 		if (m_ActiveSpell != null) {
+
+			if (m_ActualHandParticles != null) {
+				Destroy(m_ActualHandParticles);
+			}
+			
 			m_ActualHandParticles = Instantiate(m_ActiveSpell.m_HandParticles, m_SpellOrigin);
 			m_ActualHandParticles.transform.localPosition = Vector3.zero;
 		}

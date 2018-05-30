@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ProjectileSpeed: 45
+  m_ProjectileParticles: {fileID: 198389002814213398}
 --- !u!135 &135034735108447616
 SphereCollider:
   m_ObjectHideFlags: 1
