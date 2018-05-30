@@ -15,7 +15,7 @@ public class ComboSlider : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		float maxTime = m_scoreManager.m_CurrentMaxTargetComboTime;
-		if(maxTime != 0f) {
+		if(maxTime == 0f) {
 			maxTime = 1f;
 		}
 		m_comboValueSlider.maxValue = maxTime;
