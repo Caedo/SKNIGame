@@ -2,18 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class SpellData {
-	public Gesture m_GestureToMatch;
-	public ParticleSystem m_HandParticles;
-	public SpellProjectile m_ProjectilePrefab;
-	public SpellDamage m_ImpactEffectPrefab;
-}
-
 public class SpellsController : MonoBehaviour {
 
-	public List<SpellData> m_SpellDataList;
-
+	public SpellLibrary m_SpellLibrary;
 	public Transform m_SpellOrigin;
 
 	SpellData m_ActiveSpell;
@@ -27,7 +18,7 @@ public class SpellsController : MonoBehaviour {
 	}
 
 	void GestureMatched(Gesture gesture) {
-		m_ActiveSpell = m_SpellDataList.Find(d => d.m_GestureToMatch == gesture);
+		m_ActiveSpell = m_SpellLibrary.m_SpellDataList.Find(d => d.m_GestureToMatch == gesture);
 		if (m_ActiveSpell != null) {
 
 			if (m_ActualHandParticles != null) {

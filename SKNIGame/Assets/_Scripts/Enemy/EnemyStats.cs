@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class EnemyStats : ScriptableObject {
 	public string m_EnemyName;
-	public Element m_Element;
 	public float m_Health;
 	public float m_Damage;
 	public float m_AttacksPerSecond;

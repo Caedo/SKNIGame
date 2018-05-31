@@ -23,6 +23,8 @@ public class EnemyController : MonoBehaviour {
         Health = GetComponent<EnemyHealh>();
         m_Agent = GetComponent<NavMeshAgent>();
 
+        Health.Initialize(m_Stats);
+        
         PillarHealth.OnPillarDestroy += OnPillarDestroyed;
     }
 
@@ -32,7 +34,6 @@ public class EnemyController : MonoBehaviour {
 
     private void Start() {
         //Initialize properties
-        Health.Initialize(m_Stats);
         m_Agent.speed = m_Stats.m_MovementSpeed;
 
         //Find attack target
@@ -52,7 +53,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void Attack() {
-        m_Target.Damage(m_Stats.m_Damage, m_Stats.m_Element);
+        m_Target.Damage(m_Stats.m_Damage, Health.m_Element);
     }
 
     //TODO: Only for test. Change it to something normal...

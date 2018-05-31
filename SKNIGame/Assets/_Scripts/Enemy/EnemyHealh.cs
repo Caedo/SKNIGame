@@ -11,7 +11,6 @@ public class EnemyHealh : LivingEntity
 
 	public void Initialize(EnemyStats stats){
 		m_MaxHealth = stats.m_Health;
-		m_DefenseElement = stats.m_Element;
 
 		m_Stats = stats;
 	}

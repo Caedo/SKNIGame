@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Name: Goblin
   m_EditorClassIdentifier: 
   m_EnemyName: Goblin
-  m_Element: {fileID: 11400000, guid: ce9a308b8b90faf4d8c0db33b7188c05, type: 2}
   m_Health: 100
-  m_Damage: 10
+  m_Damage: 2
   m_AttacksPerSecond: 1
   m_AttackRange: 2
-  m_MovementSpeed: 10
+  m_MovementSpeed: 8
   m_ScoreValue: 100
   m_Description: Kappa

@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21a32694b8109f48a66bcdc4b8226ed, type: 3}
+  m_Name: Spell Library
+  m_EditorClassIdentifier: 
+  m_SpellDataList:
+  - name: Dark Spehere
+    m_GestureToMatch: {fileID: 11400000, guid: f528e5ea7f0959545861d5252488356b, type: 2}
+    m_HandParticles: {fileID: 198822443946690554, guid: d99018357fdc7844585b029eeaa0f297,
+      type: 2}
+    m_ProjectilePrefab: {fileID: 114860939270772888, guid: 514cdd2c086000241866575d8342cf6e,
+      type: 2}
+    m_ImpactEffectPrefab: {fileID: 114444521929414382, guid: 17df39a51d18a424c838ca45cc59260f,
+      type: 2}
+  - name: Fireball
+    m_GestureToMatch: {fileID: 11400000, guid: 4523aab29aa7852409a124679f6d5f36, type: 2}
+    m_HandParticles: {fileID: 198678973246306560, guid: adf56e58e70f00e46b2ccdf6b3cbfb00,
+      type: 2}
+    m_ProjectilePrefab: {fileID: 114603792489496904, guid: f82db1c0f55bc024685be663ef07eea8,
+      type: 2}
+    m_ImpactEffectPrefab: {fileID: 114558185012748538, guid: b764d7c1a4f27054bb3611fb0f93a07b,
+      type: 2}
+  - name: Ice Explosion
+    m_GestureToMatch: {fileID: 11400000, guid: a65670cd800696942b1ada00bd531d30, type: 2}
+    m_HandParticles: {fileID: 198630502740619198, guid: f13eaacb26ed81f4bb83b71ff9ddb3d7,
+      type: 2}
+    m_ProjectilePrefab: {fileID: 114232610778832876, guid: 7db3be2beb8d49d47bcd8b29f8099d68,
+      type: 2}
+    m_ImpactEffectPrefab: {fileID: 114487537368757210, guid: 67296bc2d4c5894498105db40d64b061,
+      type: 2}
+  - name: Storm
+    m_GestureToMatch: {fileID: 11400000, guid: 0639b5f9a28cee842835681788158910, type: 2}
+    m_HandParticles: {fileID: 198598017908052044, guid: 1d7d5d0c919f5e140a2c0295d77e38e0,
+      type: 2}
+    m_ProjectilePrefab: {fileID: 114115738162394132, guid: e84c02d066a4cbb479ca90214fc94002,
+      type: 2}
+    m_ImpactEffectPrefab: {fileID: 114578044579289702, guid: 195f0e6283458774180eb613769e7e94,
+      type: 2}
+  - name: 'Rock '
+    m_GestureToMatch: {fileID: 11400000, guid: 9a2d8b89eed493048b35ada9c2965bb1, type: 2}
+    m_HandParticles: {fileID: 198649340731405306, guid: 3231c9c25553ac34292354fffce1b03d,
+      type: 2}
+    m_ProjectilePrefab: {fileID: 114441566747658678, guid: cb0492b9db399df4a8c6374057d4d42f,
+      type: 2}
+    m_ImpactEffectPrefab: {fileID: 114248924055601630, guid: 0b9901d409ad2624abcf5111c49460ec,
+      type: 2}

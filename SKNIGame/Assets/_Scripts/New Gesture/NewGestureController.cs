@@ -105,7 +105,7 @@ public class NewGestureController : MonoBehaviour {
 
     public bool AddIndexToSequence(int index) {
         if (!m_CurrentSequence.Contains(index)) {
-            Debug.Log("Adding to Sequence: " + index);
+            //Debug.Log("Adding to Sequence: " + index);
             m_CurrentSequence.Add(index);
 
             return true;

@@ -18,9 +18,33 @@ MonoBehaviour:
     - m_EnemyPrefab: {fileID: 114094929405145440, guid: 51d1bb0e7718def43a15b87fa89ef37f,
         type: 2}
       m_SpawnCount: 4
+    - m_EnemyPrefab: {fileID: 114828359869866462, guid: 7775568ce9d367e4dbe88e0ae0d773d9,
+        type: 2}
+      m_SpawnCount: 4
+    - m_EnemyPrefab: {fileID: 114788804622110812, guid: 98316804f60b623448976fe5f9d35446,
+        type: 2}
+      m_SpawnCount: 4
+    - m_EnemyPrefab: {fileID: 114052216759957032, guid: 1baec948593d1f545be2d2838df3ca24,
+        type: 2}
+      m_SpawnCount: 4
+    - m_EnemyPrefab: {fileID: 114585108913157470, guid: bc16c52ea5200024585a8b01b2ed78be,
+        type: 2}
+      m_SpawnCount: 4
   - m_Name: 2GA
     m_WaitTime: 2
     m_Enemies:
-    - m_EnemyPrefab: {fileID: 114849995341404870, guid: ee81208ace62f9342aacbe42d4fe6844,
+    - m_EnemyPrefab: {fileID: 114854577237324512, guid: 1c5044cc369b46d4db974d9044d75b10,
         type: 2}
-      m_SpawnCount: 2
+      m_SpawnCount: 1
+    - m_EnemyPrefab: {fileID: 114409362852227062, guid: e828642f43e256f46a402ef7e42247ed,
+        type: 2}
+      m_SpawnCount: 1
+    - m_EnemyPrefab: {fileID: 114131739542466502, guid: 10c2ee26b4af4904c9a7c04672e7dd4d,
+        type: 2}
+      m_SpawnCount: 1
+    - m_EnemyPrefab: {fileID: 114043566808797162, guid: b5b1702253b1fc94f82720f684236b79,
+        type: 2}
+      m_SpawnCount: 1
+    - m_EnemyPrefab: {fileID: 114259683844855524, guid: 2db6bdbfcc99af441b1e35fe85125df7,
+        type: 2}
+      m_SpawnCount: 1

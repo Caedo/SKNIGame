@@ -21,6 +21,7 @@ public class SpellProjectile : MonoBehaviour {
 
 	void Start() {
 		m_Body.velocity = transform.forward * m_ProjectileSpeed;
+		Destroy(gameObject, 10);
 	}
 
 	void OnTriggerEnter(Collider other) {
