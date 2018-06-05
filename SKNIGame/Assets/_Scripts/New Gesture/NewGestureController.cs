@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class NewGestureController : MonoBehaviour {
     public NewGestureLibrary m_Library;
-    public Transform m_HandCollider;
+    public Transform m_ThingCollider;
     public Transform m_PointerRayOrigin;
+
+    public Transform m_Controller;
 
     public float m_CircleRadius;
 
@@ -34,7 +36,7 @@ public class NewGestureController : MonoBehaviour {
 
     public Vector3 HandPosition {
         get {
-            return m_HandCollider.position;
+            return m_ThingCollider.position;
         }
     }
 
@@ -54,8 +56,11 @@ public class NewGestureController : MonoBehaviour {
         if (m_PointerRayOrigin == null)
             m_PointerRayOrigin = Camera.main.transform;
 
-        InputController.Instance.SubscribeEventHandler("CreateSpellDown", StartTraicing);
-        InputController.Instance.SubscribeEventHandler("CreateSpellUp", EndTracing);
+        //InputController.Instance.SubscribeEventHandler("CreateSpellDown", StartTraicing);
+        //InputController.Instance.SubscribeEventHandler("CreateSpellUp", EndTracing);
+        InputController.Instance.m_LeftController.TriggerClicked += StartTraicing;
+        InputController.Instance.m_LeftController.TriggerUnclicked += EndTracing;
+
     }
 
     void Update() {
@@ -65,20 +70,21 @@ public class NewGestureController : MonoBehaviour {
             Ray ray = new Ray(m_PointerRayOrigin.position, m_PointerRayOrigin.forward);
             float dist;
             if (m_CirclePlane.Raycast(ray, out dist)) {
-                m_HandCollider.position = ray.GetPoint(dist);
+                m_ThingCollider.position = ray.GetPoint(dist);
             }
         }
 
     }
 
-    void StartTraicing() {
+    void StartTraicing(object sender, ClickedEventArgs e)
+    {
 
-        m_CircleController.transform.position = MouseWorldPostion;
+        m_CircleController.transform.position = m_Controller.position + m_Controller.forward * m_CircleDistance;
         m_CircleController.transform.LookAt(m_PointerRayOrigin);
 
-        m_HandCollider.gameObject.SetActive(true);
+        m_ThingCollider.gameObject.SetActive(true);
         m_CircleController.Show();
-        m_HandCollider.position = MouseWorldPostion;
+        m_ThingCollider.position = MouseWorldPostion;
 
         m_CirclePlane = new Plane(m_CircleController.transform.forward, m_CircleController.transform.position);
 
@@ -87,9 +93,10 @@ public class NewGestureController : MonoBehaviour {
 
     }
 
-    void EndTracing() {
+    void EndTracing(object sender, ClickedEventArgs e)
+    {
         m_CircleController.Hide();
-        m_HandCollider.gameObject.SetActive(false);
+        m_ThingCollider.gameObject.SetActive(false);
         
         m_IsTracing = false;
 

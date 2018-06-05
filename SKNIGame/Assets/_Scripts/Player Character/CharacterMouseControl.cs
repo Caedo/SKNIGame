@@ -50,7 +50,7 @@ public class CharacterMouseControl : MonoBehaviour {
 			Ray ray = new Ray(m_PointerOriginTransform.position, m_PointerOriginTransform.forward);
 			RaycastHit hit;
 			float dist = 200f;
-			if (Physics.Raycast(ray, out hit, float.MaxValue, m_TowerMask)) {
+			if (Physics.Raycast(ray, out hit, float.MaxValue, m_TowerMask,QueryTriggerInteraction.UseGlobal)) {
 				m_SelectedTower = hit.collider.GetComponent<PlayerTower>();
 				m_SelectedTower.SetSelection(true);
 				dist = hit.distance;

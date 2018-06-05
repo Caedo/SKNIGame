@@ -14,7 +14,9 @@ public class SpellsController : MonoBehaviour {
 
 	private void Start() {
 		NewGestureController.Instance.OnGestureMatch += GestureMatched;
-		InputController.Instance.SubscribeEventHandler("CastSpellDown", CastSpell);
+        //InputController.Instance.SubscribeEventHandler("CastSpellDown", CastSpell);
+
+        InputController.Instance.m_LeftController.Gripped += CastSpell;
 	}
 
 	void GestureMatched(Gesture gesture) {
@@ -30,7 +32,8 @@ public class SpellsController : MonoBehaviour {
 		}
 	}
 
-	void CastSpell() {
+	void CastSpell(object sender, ClickedEventArgs e)
+    {
 		if (m_ActiveSpell != null) {
 			m_ActualHandParticles.Stop();
 			Destroy(m_ActualHandParticles.gameObject, m_ActualHandParticles.main.duration);
