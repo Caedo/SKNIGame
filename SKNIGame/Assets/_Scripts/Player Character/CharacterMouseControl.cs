@@ -28,17 +28,23 @@ public class CharacterMouseControl : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.Locked;
 		m_PointerLine.enabled = false;
 
-		InputController.Instance.SubscribeEventHandler("MoveKeyDown", HandleMoveKeyDown);
-		InputController.Instance.SubscribeEventHandler("MoveKeyUp", HandleMoveKeyUp);		
-	}
+        //InputController.Instance.SubscribeEventHandler("MoveKeyDown", HandleMoveKeyDown);
+        //InputController.Instance.SubscribeEventHandler("MoveKeyUp", HandleMoveKeyUp);		+
+        InputController.Instance.m_LeftController.PadClicked += HandleMoveKeyDown;
+        InputController.Instance.m_LeftController.PadUnclicked += HandleMoveKeyUp;
 
-	void Update() {
-		Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+        InputController.Instance.m_RightController.PadClicked += HandleMoveKeyDown;
+        InputController.Instance.m_RightController.PadUnclicked += HandleMoveKeyUp;
 
-		m_Pitch -= mouseDelta.y * m_MouseSensitivity.y;
-		m_Yaw += mouseDelta.x * m_MouseSensitivity.x;
+    }
 
-		m_Camera.localRotation = Quaternion.Euler(m_Pitch, m_Yaw, 0);
+    void Update() {
+		//Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+
+		//m_Pitch -= mouseDelta.y * m_MouseSensitivity.y;
+		//m_Yaw += mouseDelta.x * m_MouseSensitivity.x;
+
+		//m_Camera.localRotation = Quaternion.Euler(m_Pitch, m_Yaw, 0);
 
 		if (pointingToMove) {
 			Ray ray = new Ray(m_PointerOriginTransform.position, m_PointerOriginTransform.forward);
@@ -58,11 +64,14 @@ public class CharacterMouseControl : MonoBehaviour {
 
 	}
 
-	void HandleMoveKeyDown() {
+	void HandleMoveKeyDown(object sender, ClickedEventArgs e)
+    {
+
 		m_PointerLine.enabled = true;
 		pointingToMove = true;
 	}
-	void HandleMoveKeyUp() {
+	void HandleMoveKeyUp(object sender, ClickedEventArgs e)
+    {
 		m_PointerLine.enabled = false;
 
 		if (m_SelectedTower != null) {

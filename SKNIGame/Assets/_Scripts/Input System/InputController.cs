@@ -5,13 +5,18 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour {
 
-
+    public enum InputType { VR, Mouse }
 
 	public static InputController Instance { get; private set; }
 
 	public InputDataList m_InputDataList;
+    public InputType m_InputType;
 
-	private void Awake() {
+    public SteamVR_TrackedController m_LeftController;
+    public SteamVR_TrackedController m_RightController;
+
+
+    private void Awake() {
 		if (Instance != null) {
 			Destroy(gameObject);
 			return;
@@ -21,6 +26,9 @@ public class InputController : MonoBehaviour {
 	}
 
 	private void Update() {
+        if (m_InputType == InputType.VR)
+            return;
+
 		foreach (var item in m_InputDataList.m_KeyList) {
 			if (item.keyEvent == null)
 				continue;
