@@ -13,7 +13,7 @@ public abstract class LivingEntity : MonoBehaviour {
 
 	protected virtual void Start() {
 		CurrentHealth = m_MaxHealth;
-		Debug.Log("Health: " +  m_MaxHealth);
+		//Debug.Log("Health: " +  m_MaxHealth);
 	}
 
 	public virtual void Damage(float dmg, Element attackElement) {

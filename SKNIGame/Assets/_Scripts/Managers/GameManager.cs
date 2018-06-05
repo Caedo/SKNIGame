@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GameWon() {
+        IsGameStarted = false;
         OnGameWon?.Invoke();
     }
 }

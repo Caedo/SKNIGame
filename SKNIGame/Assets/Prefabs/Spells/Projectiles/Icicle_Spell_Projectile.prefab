@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 54704148548614298}
   - component: {fileID: 135519749964755802}
   - component: {fileID: 114232610778832876}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icicle_Spell_Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4834621413725024}
   - component: {fileID: 198128099295926144}
   - component: {fileID: 199755906578429174}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Snow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4026842995842348}
   - component: {fileID: 33898929297903696}
   - component: {fileID: 23158512498540620}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: icicle mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 4757489348803476}
   - component: {fileID: 198287197971010404}
   - component: {fileID: 199921692159771070}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mist
   m_TagString: Untagged
   m_Icon: {fileID: 0}

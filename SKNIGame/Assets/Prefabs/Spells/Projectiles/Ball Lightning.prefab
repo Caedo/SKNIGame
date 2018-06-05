@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 135219635746436654}
   - component: {fileID: 54238405499000582}
   - component: {fileID: 114115738162394132}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Ball Lightning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4721959104516074}
   - component: {fileID: 198157611057354162}
   - component: {fileID: 199829519909873244}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Electricity Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

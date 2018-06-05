@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4001656587511410}
   - component: {fileID: 33184751819015422}
   - component: {fileID: 23806852117468350}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 54545563720430728}
   - component: {fileID: 135822052095675530}
   - component: {fileID: 114441566747658678}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Earth Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ProjectileSpeed: 40
+  m_ProjectileParticles: {fileID: 0}
 --- !u!135 &135822052095675530
 SphereCollider:
   m_ObjectHideFlags: 1

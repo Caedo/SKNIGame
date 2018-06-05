@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4342779951228860}
   - component: {fileID: 198481706246337300}
   - component: {fileID: 199577493995390522}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rosette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 54935208143566482}
   - component: {fileID: 135950640172443044}
   - component: {fileID: 114860939270772888}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Dark Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

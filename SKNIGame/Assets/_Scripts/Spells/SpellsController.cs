@@ -7,16 +7,22 @@ public class SpellsController : MonoBehaviour {
 	public SpellLibrary m_SpellLibrary;
 	public Transform m_SpellOrigin;
 
+    public SteamVR_TrackedController m_Controller;
+
+    public NewGestureController CharacterMoveControl;
+
 	SpellData m_ActiveSpell;
 	ParticleSystem m_ActualHandParticles;
+
+
 
 	private void Awake() { }
 
 	private void Start() {
-		NewGestureController.Instance.OnGestureMatch += GestureMatched;
+        CharacterMoveControl.OnGestureMatch += GestureMatched;
         //InputController.Instance.SubscribeEventHandler("CastSpellDown", CastSpell);
 
-        InputController.Instance.m_LeftController.Gripped += CastSpell;
+        m_Controller.Gripped += CastSpell;
 	}
 
 	void GestureMatched(Gesture gesture) {
@@ -24,7 +30,7 @@ public class SpellsController : MonoBehaviour {
 		if (m_ActiveSpell != null) {
 
 			if (m_ActualHandParticles != null) {
-				Destroy(m_ActualHandParticles);
+				Destroy(m_ActualHandParticles.gameObject);
 			}
 			
 			m_ActualHandParticles = Instantiate(m_ActiveSpell.m_HandParticles, m_SpellOrigin);

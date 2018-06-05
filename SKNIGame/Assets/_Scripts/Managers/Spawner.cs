@@ -16,6 +16,8 @@ public class Spawner : MonoBehaviour {
 	bool m_WaitingForNextWave = true;
 	Queue<Transform> m_SpawnPointsQueue = new Queue<Transform>();
 
+    bool m_AllWavesEnded;
+
 	void Awake() {
 		m_WaitForSpawn = new WaitForSeconds(m_SpawnDelay);
 		EnemyHealh.OnEnemyDeath += OnEnemyDeath;
@@ -47,7 +49,7 @@ public class Spawner : MonoBehaviour {
 
 		if (m_WaveNumber >= m_Waves.Count) {
 			//End Game
-			GameManager.Instance.GameWon();
+			//GameManager.Instance.GameWon();
 		} else {
 			//Debug.Log("Spawning next Wave");
 
@@ -79,17 +81,22 @@ public class Spawner : MonoBehaviour {
 		}
 
 		m_WaitingForNextWave = true;
+        if (m_WaveNumber == m_Waves.Count - 1)
+            m_AllWavesEnded = true;
 		yield return null;
 	}
 
 	//Called when some enemy was killed
 	void OnEnemyDeath(EnemyHealh health) {
 		m_EnemiesAlive--;
-	}
+
+        if (m_AllWavesEnded && m_EnemiesAlive == 0)
+            GameManager.Instance.GameWon();
+    }
 
 	//Next wave can be created when all enemies were spawned and then killed
 	public bool CanSpawnNextWave() {
-		return m_WaitingForNextWave && m_EnemiesAlive == 0 && GameManager.Instance.IsGameStarted;
+		return m_WaitingForNextWave && (m_EnemiesAlive == 0) && GameManager.Instance.IsGameStarted;
 	}
 
 }

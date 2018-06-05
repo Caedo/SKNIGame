@@ -11,6 +11,7 @@ public class GameEndManager : MonoBehaviour {
 	}
 
 	void GameWon() {
+        Debug.Log("ASDFADFADSFDSF");
 		foreach (var system in m_ParticlesWhenWin) {
 			system.Play();
 		}

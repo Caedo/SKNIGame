@@ -8,7 +8,7 @@ public class NewGestureController : MonoBehaviour {
     public Transform m_ThingCollider;
     public Transform m_PointerRayOrigin;
 
-    public Transform m_Controller;
+    public SteamVR_TrackedController m_Controller;
 
     public float m_CircleRadius;
 
@@ -26,7 +26,7 @@ public class NewGestureController : MonoBehaviour {
 
     Plane m_CirclePlane;
 
-    public static NewGestureController Instance { get; private set; }
+    //public static NewGestureController Instance { get; private set; }
 
     private Vector3 MouseWorldPostion {
         get {
@@ -40,14 +40,14 @@ public class NewGestureController : MonoBehaviour {
         }
     }
 
-    private void Awake() {
-        if (Instance != null) {
-            Destroy(gameObject);
-            return;
-        }
+    //private void Awake() {
+    //    if (Instance != null) {
+    //        Destroy(gameObject);
+    //        return;
+    //    }
 
-        Instance = this;
-    }
+    //    Instance = this;
+    //}
 
     private void Start() {
         m_CircleController = GetComponentInChildren<GestureCircleController>();
@@ -58,8 +58,8 @@ public class NewGestureController : MonoBehaviour {
 
         //InputController.Instance.SubscribeEventHandler("CreateSpellDown", StartTraicing);
         //InputController.Instance.SubscribeEventHandler("CreateSpellUp", EndTracing);
-        InputController.Instance.m_LeftController.TriggerClicked += StartTraicing;
-        InputController.Instance.m_LeftController.TriggerUnclicked += EndTracing;
+        m_Controller.TriggerClicked += StartTraicing;
+        m_Controller.TriggerUnclicked += EndTracing;
 
     }
 
@@ -79,7 +79,7 @@ public class NewGestureController : MonoBehaviour {
     void StartTraicing(object sender, ClickedEventArgs e)
     {
 
-        m_CircleController.transform.position = m_Controller.position + m_Controller.forward * m_CircleDistance;
+        m_CircleController.transform.position = m_Controller.transform.position + m_Controller.transform.forward * m_CircleDistance;
         m_CircleController.transform.LookAt(m_PointerRayOrigin);
 
         m_ThingCollider.gameObject.SetActive(true);
